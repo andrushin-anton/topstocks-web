@@ -31,9 +31,9 @@ class App extends Component {
             id: snapShot.id,
             ...snapShot.data()
           });
-        })
-      } 
-      
+        });
+      }
+
       setCurrentUser(userAuth);
     });
   }
@@ -47,11 +47,11 @@ class App extends Component {
       <div>
       <Header/>
       <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route exact path='/shop' component={ShopPage} />
-        <Route path='/shop/:collectionId' component={CollectionPage} />
-        <Route exact path='/checkout' component={CheckoutPage} />
-        <Route exact path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/shop' component={ShopPage} />
+          <Route path='/shop/:collectionId' component={CollectionPage} />
+          <Route exact path='/checkout' component={CheckoutPage} />
+          <Route exact path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
       </Switch>
       </div>
     );
