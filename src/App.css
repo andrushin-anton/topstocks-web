@@ -11,3 +11,96 @@ a {
 * {
     box-sizing: border-box;
 }
+
+.jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    }
+    @media (min-width: 768px) {
+    .jumbotron {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+  
+.jumbotron p:last-child {
+    margin-bottom: 0;
+}
+
+.jumbotron h1 {
+    font-weight: 300;
+}
+
+.jumbotron .container {
+    max-width: 40rem;
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+footer p {
+    margin-bottom: .25rem;
+}
+  
+  
+.company-logos div {
+    display: inline;
+}
+.company-logos > div + div {
+    margin-left: -0.75rem;
+}
+.company-logo{
+    border-radius: 50%;
+    width: 1.925rem;
+    height: 1.925rem;
+}
+  
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav-tabs {
+    border-radius: 0.5rem;
+    background: #e9ecef;
+    border-bottom: 0 solid transparent;
+}
+.nav-tabs .nav-item {
+    margin: .5rem;
+}
+.nav-fill .nav-item {
+    flex: 1 1 auto;
+    text-align: center;
+}
+  
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #007bff;
+    background-color: #fff;
+    border-color: transparent;
+    border-radius: 0.5rem;
+}
+.nav-tabs .nav-link {
+    font-size: .875rem;
+    font-weight: 500;
+    padding: .5rem;
+    transition: color .35s ease-out;
+}
+.nav-tabs .nav-link {
+    border: 0 solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.tab-content {
+    margin-top: 1.5rem;
+}
+
+.tab-content > .active {
+    display: block;
+}

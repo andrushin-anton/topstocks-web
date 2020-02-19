@@ -1,45 +1,59 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { auth } from '../../firebase/firebase.utils';
-import CartIcon from '../cart-icon/cart-icon.component';
-import CartDropDown from '../cart-dropdown/cart-dropdown.component';
-import { ReactComponent as Logo } from '../../assets/crown.svg';
+import { Link } from 'react-router-dom';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { createStructuredSelector } from 'reselect';
 import { signOutStart } from '../../redux/user/user.actions';
 
-
-import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './header.styles';
+import './header.styles.scss';
 
 const Header = ({ currentUser, hidden, signOutStart }) => {
     return (
-        <HeaderContainer>
-            <LogoContainer to='/' className='logo-container'>
-                <Logo className='logo' />
-            </LogoContainer>
-            <OptionsContainer>
-                <OptionLink to='/shop'>
-                    SHOP
-                </OptionLink>
-                <OptionLink to='/shop'>
-                    CONTACT
-                </OptionLink>
-                {currentUser ? (
-                    <OptionLink as='div' onClick={signOutStart}>
-                      SIGN OUT
-                    </OptionLink>
-                ) : (
-                    <OptionLink to='/signin'>
-                      SIGN IN
-                    </OptionLink>
-                )}
-                <CartIcon />
-            </OptionsContainer>
-            {
-                hidden ? null : <CartDropDown />
-            }
-        </HeaderContainer>
+        <div>
+        <h1><Link to='/'>TopStocks</Link></h1>
+        <div className='lead text-muted'>
+        Is the platform that checks stocks by multiplicators on a daily basis. It allows you to focus on investments.
+        </div>
+        
+        <div className='company-logos'>
+            <div>
+                <img alt="Tesla" className="company-logo" src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/36/15/e1340c1d184115745b215da10444ad02.png" />
+            </div>
+            <div>
+                <img alt="Ferrari" className="company-logo" src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/69/96/bfa6ec53252b5cc00cb00bc06a2d8343.png"/>
+            </div>
+            <div>
+                <img alt="Baudi" className="company-logo" src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/35/66/d808e27c6a6733523a9bc4058a844ac5.png"/>
+            </div>
+            <div>
+                <img alt="Intel" className="company-logo" src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/86/66/9114c81d43413e297abfbc88c6a9a73c.png"/>
+            </div>
+            <div>
+                <img alt="Alibaba" className="company-logo" src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/23/83/98f0a82de2a13172ad8a625dff547a9f.png"/>
+            </div>
+            <div>
+                <img alt="MacDonnalds" className="company-logo" src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/16/41/545c713a4cdaa2ff6a940acc013e1410.png"/>
+            </div>
+            <div>
+                <img alt="Cat" className="company-logo" src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/44/67/487d171920f38d1110f6a2ada87d6f15.png"/>
+            </div>
+        </div>
+            
+        <hr/>
+
+        <ul className="nav nav-tabs nav-fill" role="tablist">
+            <li className="nav-item">
+                <Link className="nav-link active" to="/">Signals</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/watch-list">Watch-List</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/about">About</Link>
+            </li>
+        </ul>
+        </div>
     )
 }
 

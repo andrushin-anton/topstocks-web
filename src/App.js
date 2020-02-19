@@ -4,15 +4,18 @@ import { connect } from 'react-redux';
 import './App.css';
 
 import Header from './components/header/header.component';
-import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shop/shop.component';
-import CheckoutPage from './pages/checkout/checkout.component';
+import SignalsPage from './pages/signals/signals.component';
+import WatchListPage from './pages/watch-list/watch-list.component';
+import CompanyPage from './pages/company/company.component';
+import AboutPage from './pages/aboutpage/aboutpage.component';
+
 
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import CollectionPage from './pages/collection/collection.component';
 import { checkUserSession } from './redux/user/user.actions';
+
+
 
 const App = ({ currentUser, checkUserSession }) => {
   useEffect(() => {
@@ -20,16 +23,18 @@ const App = ({ currentUser, checkUserSession }) => {
   }, [checkUserSession]);
 
   return (
-    <div>
-    <Header/>
-    <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route exact path='/shop' component={ShopPage} />
-        <Route path='/shop/:collectionId' component={CollectionPage} />
-        <Route exact path='/checkout' component={CheckoutPage} />
-        <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
-    </Switch>
-    </div>
+    <section className='jumbotron'>
+    <div className='container'>
+      <Header/>
+        <Switch>
+            <Route exact path='/' component={SignalsPage} />
+            <Route exact path='/watch-list' component={WatchListPage} />
+            <Route path='/company/:ticker' component={CompanyPage} />
+            <Route path='/about' component={AboutPage} />
+            <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
+        </Switch>
+      </div>
+    </section>  
   );
   
 }
