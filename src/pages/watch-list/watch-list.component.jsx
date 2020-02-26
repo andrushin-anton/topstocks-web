@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MenuTab from '../../components/menu-tab/menu-tab.component';
 
 import './watch-list.styles.scss';
 
 const WatchListPage = () => {
     return (
-        <div className="tab-content">
+        <div>
+            <MenuTab activeTab='watchlist'/>
+            <div className="tab-content">
             <div className="tab-pane fade active show">
                 <div className="content-list">
                     <div className="row">
@@ -74,6 +77,7 @@ const WatchListPage = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

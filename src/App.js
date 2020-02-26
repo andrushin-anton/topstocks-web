@@ -23,20 +23,19 @@ const App = ({ currentUser, checkUserSession }) => {
   }, [checkUserSession]);
 
   return (
-    <section className='jumbotron'>
-    <div className='container'>
-      <Header/>
-        <Switch>
-            <Route exact path='/' component={SignalsPage} />
-            <Route exact path='/watch-list' component={WatchListPage} />
-            <Route path='/company/:ticker' component={CompanyPage} />
-            <Route path='/about' component={AboutPage} />
-            <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
-        </Switch>
-      </div>
-    </section>  
+      <section className='jumbotron'>
+        <div className='container'>
+          <Header/>
+          <Switch>
+              <Route exact path='/' component={SignalsPage} />
+              <Route exact path='/watch-list' component={WatchListPage} />
+              <Route path='/company/:symbol' component={CompanyPage} />
+              <Route path='/about' component={AboutPage} />
+              <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
+          </Switch>
+        </div>
+      </section> 
   );
-  
 }
 
 const mapStateToProps = createStructuredSelector({

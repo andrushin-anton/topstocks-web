@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MenuTab from '../../components/menu-tab/menu-tab.component';
 
 const SignalsPage = () => {
     return (
-        <div className="tab-content">
+        <div>
+            <MenuTab activeTab='signals'/>
+            <div className="tab-content">
             <div className="tab-pane fade active show">
                 <div className="content-list">
                     <div className="row">
@@ -131,6 +134,7 @@ const SignalsPage = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
