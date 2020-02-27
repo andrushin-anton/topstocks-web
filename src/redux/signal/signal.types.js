@@ -1,0 +1,7 @@
+const SignalActionTypes = {
+    FETCH_SIGNALS_START: 'FETCH_SIGNALS_START',
+    FETCH_SIGNALS_SUCCESS: 'FETCH_SIGNALS_SUCCESS',
+    FETCH_SIGNALS_FAILER: 'FETCH_SIGNALS_FAILER'
+}
+
+export default SignalActionTypes;

@@ -3,14 +3,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-    apiKey: "AIzaSyBCdWo7AEQaT7tS_9s0w0Ve5AGSF4T9j4E",
-    authDomain: "crown-db-a36f1.firebaseapp.com",
-    databaseURL: "https://crown-db-a36f1.firebaseio.com",
-    projectId: "crown-db-a36f1",
-    storageBucket: "crown-db-a36f1.appspot.com",
-    messagingSenderId: "990287399387",
-    appId: "1:990287399387:web:27a1923417af88d471bffe",
-    measurementId: "G-FWBDQKLQ5Z"
+    apiKey: "AIzaSyB79dZV321ZqE4A6OdEvqOtROhJ_IzEj0E",
+    authDomain: "topstocks-8782c.firebaseapp.com",
+    databaseURL: "https://topstocks-8782c.firebaseio.com",
+    projectId: "topstocks-8782c",
+    storageBucket: "topstocks-8782c.appspot.com",
+    messagingSenderId: "839850355466",
+    appId: "1:839850355466:web:4bf8b4550b7d60061328f3",
+    measurementId: "G-DQKEV8GVMW"
   };
 
   export const createUserProfileDocument = async (userAuth, additional) => {
@@ -49,20 +49,13 @@ const config = {
     return await batch.commit();
   }
 
-  export const convertCollectionsSnapshotToMap = (collections) => {
-    const transformedCollection = collections.docs.map(doc => {
-      const { title, items } = doc.data();
+  export const convertSnapshotToMap = (snapshot) => {
+    const transformedSnap = snapshot.docs.map(doc => {
       return {
-        routeName: encodeURI(title.toLowerCase()),
-        id: doc.id,
-        title,
-        items
+        ...doc.data()
       }
     })
-    return transformedCollection.reduce((accumulator, collection) => {
-      accumulator[collection.title.toLowerCase()] = collection;
-      return accumulator;
-    }, {})
+    return transformedSnap;
   }
 
   export const getCurrentUser = () => {
