@@ -1,10 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import MenuTab from '../../components/menu-tab/menu-tab.component';
 
 import './watch-list.styles.scss';
+import WatchListCard from '../../components/wach-list-card/watch-list-card.component';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { selectAllWatchList } from '../../redux/watch-list/watch-list.selector';
+import { fetchWatchListsStart } from '../../redux/watch-list/watch-list.actions';
 
-const WatchListPage = () => {
+const WatchListPage = ({ fetchWatchListsStart, watchList }) => {
+    useEffect(() => {
+        fetchWatchListsStart()
+    }, [fetchWatchListsStart]);
+
     return (
         <div>
             <MenuTab activeTab='watchlist'/>
@@ -13,66 +21,9 @@ const WatchListPage = () => {
                 <div className="content-list">
                     <div className="row">
             
-                        <div className="col-xs-4 col-sm-6 col-lg-5">
-                            <div className="mb-6">
-                                <div className='watch-list-item d-flex'>
-                                <Link to="/company/TSL">
-                                    <img className="company-logo" alt='Tesla Logo' src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/36/15/e1340c1d184115745b215da10444ad02.png" />
-                                </Link>
-                                <div className="body align-right">
-                                    <h6 className="mb-0"><Link to="/company/TSL">Tesla</Link></h6>
-                                    <span className="text-body SPAN-filter-by-text">Administrator</span>
-                                </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                            
-
-                        <div className="col-xs-4 col-sm-6 col-lg-5">
-                            <div className="mb-6">
-                                <div className='watch-list-item d-flex'>
-                                <Link to="/company/TSL">
-                                    <img className="company-logo" alt='Tesla Logo' src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/36/15/e1340c1d184115745b215da10444ad02.png" />
-                                </Link>
-                                <div className="body align-right">
-                                    <h6 className="mb-0"><Link to="/company/TSL">Tesla</Link></h6>
-                                    <span className="text-body SPAN-filter-by-text">Administrator</span>
-                                </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-xs-4 col-sm-6 col-lg-5">
-                            <div className="mb-6">
-                                <div className='watch-list-item d-flex'>
-                                <Link to="/company/TSL">
-                                    <img className="company-logo" alt='Tesla Logo' src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/36/15/e1340c1d184115745b215da10444ad02.png" />
-                                </Link>
-                                <div className="body align-right">
-                                    <h6 className="mb-0"><Link to="/company/TSL">Tesla</Link></h6>
-                                    <span className="text-body SPAN-filter-by-text">Administrator</span>
-                                </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-xs-4 col-sm-6 col-lg-5">
-                            <div className="mb-6">
-                                <div className='watch-list-item d-flex'>
-                                <Link to="/company/TSL">
-                                    <img className="company-logo" alt='Tesla Logo' src="https://s0.rbk.ru/emitent_pics/resized/80x80_crop/images/36/15/e1340c1d184115745b215da10444ad02.png" />
-                                </Link>
-                                <div className="body align-right">
-                                    <h6 className="mb-0"><Link to="/company/TSL">Tesla</Link></h6>
-                                    <span className="text-body SPAN-filter-by-text">Administrator</span>
-                                </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                        {watchList.map(({ symbol, ...otherSignalProps }) => (
+                            <WatchListCard key={symbol} symbol={symbol} { ...otherSignalProps } />
+                        ))}
 
                     </div>
                 </div>
@@ -82,4 +33,12 @@ const WatchListPage = () => {
     )
 }
 
-export default WatchListPage;
+const mapStateToProps = createStructuredSelector({
+    watchList: selectAllWatchList
+});
+
+const mapDispatchToProps = dispatch => ({
+    fetchWatchListsStart: () => dispatch(fetchWatchListsStart())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WatchListPage);

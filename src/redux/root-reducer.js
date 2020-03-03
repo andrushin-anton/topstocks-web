@@ -4,6 +4,7 @@ import storage from  'redux-persist/lib/storage';
 
 import userReducer from './user/user.reducer';
 import signalReducer from './signal/signal.reducer';
+import watchListReducer from './watch-list/watch-list.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -13,7 +14,8 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     user: userReducer,
-    signals: signalReducer
+    signals: signalReducer,
+    watchList: watchListReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

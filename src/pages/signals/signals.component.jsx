@@ -6,7 +6,7 @@ import { fetchSignalsStart } from '../../redux/signal/signal.actions';
 import { createStructuredSelector } from 'reselect';
 import SignalCard from '../../components/signal-card/signal-card.component';
 
-const SignalsPage = ({ match, signals, fetchSignalsStart }) => {
+const SignalsPage = ({ signals, fetchSignalsStart }) => {
     useEffect(() => {
         fetchSignalsStart()
       }, [fetchSignalsStart]);
