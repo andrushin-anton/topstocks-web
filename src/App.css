@@ -73,3 +73,7 @@ footer p {
 .header-links a {
     padding-right: 7px;
 }
+
+.spinner {
+    margin-top: 100px;
+}

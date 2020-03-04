@@ -9,5 +9,5 @@ export const selectAllSignals = createSelector(
 
 export const selectIsSignalsLoaded = createSelector(
     [selectSignals],
-    signals => !!signals.companies
+    signals => signals.isFetching
 )

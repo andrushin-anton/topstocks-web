@@ -7,7 +7,7 @@ export const selectAllWatchList = createSelector(
     (watchList) => watchList.companies
 )
 
-export const selectIsWatchListLoaded = createSelector(
+export const selectIsWatchListLoading = createSelector(
     [selectWatchList],
-    watchList => !!watchList.companies
+    watchList => watchList.isFetching
 )

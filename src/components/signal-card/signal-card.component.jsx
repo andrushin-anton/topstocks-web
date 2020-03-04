@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const SignalCard = ({ name, symbol, logo, price }) => {
     return (
-        <div className="col-md-4">
-            <div className="card mb-4">
+        <div className="col-md-6">
+            <div className="card mb-6">
                 <div className="card-body">
                 <div className="d-flex">
                     <div className="p-2">

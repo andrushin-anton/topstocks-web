@@ -67,6 +67,15 @@ const config = {
     });
   }
 
+  export const getCompanyBySymbol = async (symbol) => {
+    const companyRef = firestore.doc(`signals/${symbol}`);
+    const snapshot = await companyRef.get();
+    if (!snapshot.exists) {
+      throw new Error('Company not found');
+    }
+    return snapshot.data();
+  };
+
   firebase.initializeApp(config);
 
   export const auth = firebase.auth();
