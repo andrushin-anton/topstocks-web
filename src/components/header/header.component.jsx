@@ -13,7 +13,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => {
             
             <h1><Link to='/'>TopStocks</Link></h1>
             <div className='lead text-muted'>
-            Is the platform that checks stocks by multiplicators on a daily basis. It allows you to focus on investments.
+            helps individual investors to focus on top companies with most promising growth.
             </div>
             <br/>
             <div className='company-logos'>

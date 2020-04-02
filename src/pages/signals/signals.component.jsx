@@ -6,6 +6,7 @@ import { fetchSignalsStart } from '../../redux/signal/signal.actions';
 import { createStructuredSelector } from 'reselect';
 import SignalCard from '../../components/signal-card/signal-card.component';
 import PropagateLoader from "react-spinners/PropagateLoader";
+import SEOComponent from '../../components/seo/seo.component';
 
 const SignalsPage = ({ signals, fetchSignalsStart, loading }) => {
     useEffect(() => {
@@ -39,6 +40,7 @@ const SignalsPage = ({ signals, fetchSignalsStart, loading }) => {
     }
     return (
         <div>
+            <SEOComponent title="Strong Buy" />
             <MenuTab activeTab='signals'/>
             {content}
         </div>

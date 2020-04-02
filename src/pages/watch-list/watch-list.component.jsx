@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { selectAllWatchList, selectIsWatchListLoading } from '../../redux/watch-list/watch-list.selector';
 import { fetchWatchListsStart } from '../../redux/watch-list/watch-list.actions';
 import PropagateLoader from "react-spinners/PropagateLoader";
+import SEOComponent from '../../components/seo/seo.component';
 
 const WatchListPage = ({ fetchWatchListsStart, watchList, loading }) => {
     useEffect(() => {
@@ -42,6 +43,7 @@ const WatchListPage = ({ fetchWatchListsStart, watchList, loading }) => {
 
     return (
         <div>
+            <SEOComponent title="Watchlist" />
             <MenuTab activeTab='watchlist'/>
             {content}
         </div>

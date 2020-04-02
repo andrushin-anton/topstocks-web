@@ -10,7 +10,7 @@ const MenuTab = ({ activeTab }) => {
         <div>
             <ul className="nav nav-tabs nav-fill" role="tablist">
                 <li className="nav-item">
-                    <Link className={signalsClass} to="/">Signals</Link>
+                    <Link className={signalsClass} to="/">Strong Buy</Link>
                 </li>
                 <li className="nav-item">
                     <Link className={watchListClass} to="/watch-list">Watch-List</Link>
