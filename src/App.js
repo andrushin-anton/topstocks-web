@@ -14,6 +14,7 @@ import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
+import NotFoundPage from './pages/404/404.component';
 
 
 
@@ -32,6 +33,7 @@ const App = ({ currentUser, checkUserSession }) => {
               <Route path='/company/:symbol' component={CompanyPage} />
               <Route path='/about' component={AboutPage} />
               <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
+              <Route component={NotFoundPage} />
           </Switch>
         </div>
       </section> 
